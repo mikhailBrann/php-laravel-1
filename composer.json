@@ -1,0 +1,20 @@
+{
+    "name": "brann/app",
+    "description": "Домашнее задание по Composer",
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Brann"
+        }
+    ],
+    "require-dev": {
+        "psr/log": "^3.0"
+    },
+    "require": {
+        "laravel/installer": "^5.14"
+    }
+}
