@@ -8,8 +8,8 @@
  - [Student](/my-app/app/Models/Student.php)
 
 Миграции:
-- [2021_04_10_141516_create_groups_table](/my-app/database/migrations/2021_04_10_141516_create_groups_table.php)
-- [2021_04_10_141545_create_students_table](/my-app/database/migrations/2021_04_10_141545_create_students_table.php)
+- [2025_04_13_152614_create_groups_table](/my-app/database/migrations/2025_04_13_152614_create_groups_table.php)
+- [2025_04_13_153503_create_students_table](/my-app/database/migrations/2025_04_13_153503_create_students_table.php)
 
 Сидеры:
 - [GroupSeeder](/my-app/database/seeders/GroupSeeder.php)
