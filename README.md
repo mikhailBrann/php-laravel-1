@@ -1,55 +1,40 @@
-## Установка composer
+##  Задание
+Контроллеры:
+ - [GroupController](/app/Http/Controllers/GroupController.php)
+ - [StudentController](/app/Http/Controllers/StudentController.php)
 
-1) composer.json - основной файл конфигурации проекта, который описывает его зависимости, метаданные и другие настройки.
-2) composer.lock - фиксирует точные версии всех пакетов и их зависимостей, которые были установлены на момент выполнения команды.
+Модели:
+ - [Group](/app/Models/Group.php)
+ - [Student](/app/Models/Student.php)
 
-1) require -  зависимости, необходимые для работы приложения.
-2) require-dev -  зависимости, необходимые только для разработки и тестирования.
+Миграции:
+- [2021_04_10_141516_create_groups_table](/database/migrations/2021_04_10_141516_create_groups_table.php)
+- [2021_04_10_141545_create_students_table](/database/migrations/2021_04_10_141545_create_students_table.php)
 
-1) composer install - устанавливает зависимости проекта.
-2) composer update - обновляет зависимости проекта.
+Сидеры:
+- [GroupSeeder](/database/seeders/GroupSeeder.php)
+- [StudentSeeder](/database/seeders/StudentSeeder.php)
 
-## Установка Laravel
+## Вопросы
+#### Для чего нужны миграции? Какую роль они играют или какую проблему решают?
+  - Миграции нужны для того, чтобы создавать и изменять структуру таблиц в БД.
+  - Миграции решают проблему совместимости между разными версиями БД.
 
-Я использую nginx в контенере, поэтому приложение находится в папке /my-app.
+#### Для чего нужен Eloquent ORM?
+  - Eloquent ORM - это ORM, который предоставляет удобный человекопонятный интерфейс для работы с БД.
+```php
+$student = new Student(
+    [
+        'group_id' => $group,
+        'surname' => $request->surname,
+        'name' => $request->name,
+    ]
+);
+$student->save();
 
-1) Перечислите список composer-пакетов, которые использует фреймворк Laravel после установки:
-- laravel/framework - основной фреймворк Laravel.
-- fideloper/proxy - пакет для работы с прокси-серверами.
-- fruitcake/laravel-cors - пакет для обработки CORS (Cross-Origin Resource Sharing).
-- guzzlehttp/guzzle - HTTP-клиент для отправки запросов.
-- laravel/sanctum - пакет для аутентификации API (в новых версиях).
-- monolog/monolog - библиотека для логирования.
-- nesbot/carbon - библиотека для работы с датами и временем.
-- phpunit/phpunit - библиотека для тестирования.
-- symfony/http-foundation - компонент Symfony для работы с HTTP-запросами и ответами.
-
-2) Изучите директорию config и опишите какие файлы хранятся в этой директории:
-- app.php - конфигурация приложения (имя, окружение, ключ и т.д.).
-- auth.php - настройки аутентификации (драйверы, провайдеры пользователей и т.д.).
-- broadcasting.php - конфигурация для системы вещания.
-- cache.php - настройки кэширования.
-- database.php - конфигурация базы данных (подключения, параметры и т.д.).
-- filesystems.php - настройки файловых систем (локальные, облачные и т.д.).
-- mail.php - конфигурация отправки почты.
-- queue.php - настройки очередей.
-- session.php - конфигурация сессий.
-- services.php - настройки сторонних сервисов (например, для API).
-
-3) В какой директории хранятся основные файлы (классы) с бизнес-логикой приложения:
-- app/ - главная директория, содержащая большую часть кода приложения
-- app/Http/Controllers/ - контроллеры, обрабатывающие HTTP-запросы
-- app/Models/ - модели Eloquent для работы с базой данных
-- app/Services/ - сервисные классы (не создаётся по умолчанию, но часто добавляется разработчиками)
-- app/Repositories/ - репозитории для работы с данными (также добавляется разработчиками)
-- app/Providers/ - сервис-провайдеры, регистрирующие сервисы в контейнере
-- app/Console/Commands/ - консольные команды
-- app/Jobs/ - задачи для очередей
-- app/Events/ и app/Listeners/ - события и их обработчики
-- app/Exceptions/ - пользовательские исключения
-
-обычно тут же и создают:
-- app/Actions/ - для классов, реализующих конкретные действия (в стиле Action-классов)
-- app/Contracts/ или app/Interfaces/ - для интерфейсов
-- app/Traits/ - для трейтов, используемых в разных классах
-- app/Helpers/ - для вспомогательных функций
+$group_id = $request->group_id;
+$students = Student::where('group_id', $group_id)
+    ->orderBy('surname', 'asc')
+    ->get();
+$group = Group::find($group_id);
+```
