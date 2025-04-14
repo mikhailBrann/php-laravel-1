@@ -1,19 +1,19 @@
 ##  Задание
 Контроллеры:
- - [GroupController](/app/Http/Controllers/GroupController.php)
- - [StudentController](/app/Http/Controllers/StudentController.php)
+ - [GroupController](/my-app/app/Http/Controllers/GroupController.php)
+ - [StudentController](/my-app/app/Http/Controllers/StudentController.php)
 
 Модели:
- - [Group](/app/Models/Group.php)
- - [Student](/app/Models/Student.php)
+ - [Group](/my-app/app/Models/Group.php)
+ - [Student](/my-app/app/Models/Student.php)
 
 Миграции:
-- [2021_04_10_141516_create_groups_table](/database/migrations/2021_04_10_141516_create_groups_table.php)
-- [2021_04_10_141545_create_students_table](/database/migrations/2021_04_10_141545_create_students_table.php)
+- [2021_04_10_141516_create_groups_table](/my-app/database/migrations/2021_04_10_141516_create_groups_table.php)
+- [2021_04_10_141545_create_students_table](/my-app/database/migrations/2021_04_10_141545_create_students_table.php)
 
 Сидеры:
-- [GroupSeeder](/database/seeders/GroupSeeder.php)
-- [StudentSeeder](/database/seeders/StudentSeeder.php)
+- [GroupSeeder](/my-app/database/seeders/GroupSeeder.php)
+- [StudentSeeder](/my-app/database/seeders/StudentSeeder.php)
 
 ## Вопросы
 #### Для чего нужны миграции? Какую роль они играют или какую проблему решают?
