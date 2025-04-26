@@ -17,9 +17,8 @@
 
 ```php
 // src/my-app/routes/web.php
-Route::get('/is_auth', [App\Http\Controllers\HomeController::class, 'isAuth'])
-    ->name('isAuth')
-    ->middleware('check-auth');
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home')
+    ->middleware('check-auth');  
 ```
 
 

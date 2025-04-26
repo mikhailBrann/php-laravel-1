@@ -14,6 +14,13 @@
                         </div>
                     @endif
 
+                    <h1>User info</h1>
+                    <ul>
+                        <li>ID: {{ $auth->id }}</li>
+                        <li>Name: {{ $auth->name }}</li>
+                        <li>Email: {{ $auth->email }}</li>
+                    </ul>
+
                     {{ __('You are logged in!') }}
                 </div>
             </div>
