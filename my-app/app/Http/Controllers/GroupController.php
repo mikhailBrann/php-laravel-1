@@ -24,6 +24,7 @@ class GroupController extends Controller
             [
                 'title' => $request->title,
                 'start_from' => $request->start_from,
+                'is_active' => $request->is_active,
             ]
         );
         $group->save();
