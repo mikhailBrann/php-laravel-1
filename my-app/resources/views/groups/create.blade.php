@@ -11,6 +11,9 @@
         @csrf
         <input type="text" name="title" placeholder="title">
         <input type="date" name="start_from" placeholder="start_from">
+        <label for="is_active">Is active:
+            <input type="checkbox" name="is_active" value="1" checked>
+        </label>
         <input type="submit" value="create">
     </form>
     <a href="/groups">To groups list</a>

@@ -14,4 +14,10 @@ class Student extends Model
         'surname',
         'name',
     ];
+
+     // Обратная связь belongsTo с Group (по желанию)
+     public function group()
+     {
+         return $this->belongsTo(Group::class);
+     }
 }

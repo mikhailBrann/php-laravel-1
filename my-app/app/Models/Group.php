@@ -14,4 +14,10 @@ class Group extends Model
         'start_from',
         'is_active',
     ];
+
+    // Связь hasMany с Student
+    public function students()
+    {
+        return $this->hasMany(Student::class);
+    }
 }

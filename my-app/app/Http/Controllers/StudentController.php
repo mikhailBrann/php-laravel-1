@@ -10,10 +10,8 @@ class StudentController extends Controller
 {
     public function index(int $group)   
     {
-        $students = Student::where('group_id', $group)
-            ->orderBy('surname', 'asc')
-            ->get();
         $group = Group::find($group);
+        $students = $group->students->sortBy('id');
 
         return view(
             'students.index', 
@@ -24,7 +22,7 @@ class StudentController extends Controller
     public function find(int $group, int $student)
     {
         $student = Student::find($student);
-        $group = Group::find($group);
+        $group = $student->group;
 
         return view('students.detail', compact('student', 'group'));
     }
