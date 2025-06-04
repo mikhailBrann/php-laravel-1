@@ -13,11 +13,17 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
-                    {{ __('You are logged in!') }}
+                    @if (auth()->check())
+                        <h1>User info</h1>
+                        <ul>
+                            <li>ID: {{ auth()->user()->id }}</li>
+                            <li>Name: {{ auth()->user()->name }}</li>
+                            <li>Email: {{ auth()->user()->email }}</li>
+                        </ul>
+                        <a href="/">Back</a>
+                    @endif
                 </div>
             </div>
         </div>
     </div>
-</div>
-@endsection
+</div>@endsection
